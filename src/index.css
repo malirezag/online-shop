@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: kanit;
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url("../public/fonts/Kanit/Kanit-Black.ttf") format("ttf");
+}
+
+html {
+  font-family: kanit;
+}
+
+.text-stroke {
+  -webkit-text-stroke: 1px rgb(34, 34, 34);
+}
