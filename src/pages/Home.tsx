@@ -11,23 +11,30 @@ import TopSelling from "../ui/TopSelling";
 function Home() {
   return (
     <main className="bg-gray-100 flex flex-col">
-      <div className="px-5">
-        <h2 className="text-5xl font-bold pt-7 tracking-tight leading-10">
-          FIND CLOTHES THAT MATCHES YOYR STYLE
-        </h2>
+      <div className="flex flex-col md:flex-row lg:justify-around items-center">
+        {" "}
+        <div className="px-5 flex flex-col justify-center sm:w-140 lg:w-115 xl:gap-2 ">
+          <h2
+            data-aos="fade-down"
+            className="text-5xl md:text-4xl lg:text-5xl xl:text-6xl xl:leading-13 font-bold pt-7 tracking-tight leading-10"
+          >
+            FIND CLOTHES THAT MATCHES YOYR STYLE
+          </h2>
 
-        <p className="text-sm py-5 text-stroke text-white tracking-wider">
-          Browse through our diverse range of meticulously crafted garments,
-          designed to bring out your individuality and cater to your sense of
-          style.
-        </p>
+          <p className="text-sm py-5 text-stroke text-white tracking-wider ">
+            Browse through our diverse range of meticulously crafted garments,
+            designed to bring out your individuality and cater to your sense of
+            style.
+          </p>
 
-        <Button text="Shop Now" className="bg-black text-white" />
+          <Button text="Shop Now" className="bg-black text-white" />
+          <Numbers />
+        </div>
+        <img
+          src="/images/man-girl.png"
+          className="md:w-112 lg:w-120 xl:w-150 sm:w-[80%]  sm:h-110 md:h-full "
+        />
       </div>
-
-      <Numbers />
-
-      <img src="/images/man-girl.png" className=" " />
 
       <Brands />
       <NewArrival />

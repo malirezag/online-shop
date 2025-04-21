@@ -6,6 +6,11 @@ export default function Title({
   className?: string;
 }) {
   return (
-    <p className={`${className} text-4xl font-bold text-center `}>{title}</p>
+    <p
+      className={`${className} text-4xl font-bold text-center `}
+      data-aos="fade-down"
+    >
+      {title}
+    </p>
   );
 }

@@ -5,7 +5,9 @@ interface Type {
 
 function Button({ text, className }: Type) {
   return (
-    <button className={`${className}  rounded-full py-4 text-lg w-full`}>
+    <button
+      className={`${className}  rounded-full py-4 md:py-3 text-lg md:text-base  w-full md:w-40`}
+    >
       {text}
     </button>
   );

@@ -5,24 +5,24 @@ import { VscGithub } from "react-icons/vsc";
 
 export default function Footer() {
   return (
-    <footer className="px-5 mt-10 mb-6">
+    <footer className="px-5 mt-10 mb-6 ">
       <div>
-        <Title title="SHOP.CO" className="text-left" />
-        <p className="text-gray-500 tracking-wide">
+        <Title title="SHOP.CO" className="text-left lg:ml-5" />
+        <p className="text-gray-500 tracking-wide lg:ml-5">
           We have clothes that suits your style and which you’re proud to wear.
           From women to men.
         </p>
       </div>
 
-      <div className="flex flex-row text-3xl items-center gap-4 my-5">
+      <div className="flex flex-row text-3xl items-center gap-4 my-5 lg:ml-5">
         <VscGithub />
         <FaWhatsapp />
         <FaTelegram />
         <LiaPhoneVolumeSolid />
       </div>
 
-      <div className="flex flex-wrap justify-around gap-15 py-6 border-b border-gray-400 ">
-        <div className="text-sm text-gray-500">
+      <div className="flex flex-wrap justify-around gap-15 py-6 border-b border-gray-400  ">
+        <div className="space-y-2 text-sm text-gray-500">
           <Title
             title="COMPANY"
             className="tracking-widest text-lg font-semibold text-black text-left"
@@ -33,7 +33,7 @@ export default function Footer() {
           <p>Career</p>
         </div>
 
-        <div className="text-sm text-gray-500">
+        <div className="space-y-2 text-sm text-gray-500">
           <Title
             title="HELP"
             className="tracking-widest text-lg font-semibold text-black text-left"
@@ -44,7 +44,7 @@ export default function Footer() {
           <p>Privacy Policy</p>
         </div>
 
-        <div className="text-sm text-gray-500">
+        <div className="space-y-2 text-sm text-gray-500">
           <Title
             title="FAQ"
             className="tracking-widest text-lg font-semibold text-black text-left"
@@ -55,7 +55,7 @@ export default function Footer() {
           <p>Payment</p>
         </div>
 
-        <div className="text-sm text-gray-500">
+        <div className="space-y-2 text-sm text-gray-500">
           <Title
             title="RESOURCES"
             className="tracking-widest text-lg font-semibold text-black text-left"
