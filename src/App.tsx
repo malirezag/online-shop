@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Cart from "./pages/Cart";
+import ProductDetails from "./pages/ProductDetail";
 
 function App() {
   useEffect(() => {
@@ -19,6 +20,7 @@ function App() {
       <Routes>
         <Route index element={<Applayout />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/x" element={<ProductDetails />} />
       </Routes>
     </BrowserRouter>
   );
