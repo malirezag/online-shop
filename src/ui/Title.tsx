@@ -8,7 +8,7 @@ export default function Title({
   return (
     <p
       className={`${className} text-4xl font-bold text-center `}
-      data-aos="fade-down"
+      // data-aos="fade-down"
     >
       {title}
     </p>
