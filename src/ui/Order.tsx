@@ -4,7 +4,7 @@ import Counter from "./Counter";
 export default function Order() {
   return (
     <div className="flex flex-row gap-4 mx-5 py-5 ">
-      <img src="public/images/Frame 33.png" className="w-29 h-29" />
+      <img src="/images/Frame 33.png" className="w-29 h-29" />
 
       <div className="w-full">
         <div className="flex flex-row justify-between items-center text-lg font-semibold">
