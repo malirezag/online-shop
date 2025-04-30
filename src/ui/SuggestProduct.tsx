@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import Product from "./Product";
+// import Product from "./Product";
 import Button from "./Button";
 
 export default function SuggestProduct() {
