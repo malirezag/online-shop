@@ -22,7 +22,7 @@ export default function Order({ order }: Type) {
           </p>
           <p>
             {" "}
-            <span className="text-black">Color:</span> {order.color}
+            <span className="text-black ">Color:</span> {order.color}
           </p>
         </div>
 
