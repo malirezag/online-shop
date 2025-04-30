@@ -4,6 +4,7 @@ import useGetOrders from "./useGetOrders";
 
 export default function CartOrders() {
   const { orders, isLoading } = useGetOrders();
+  console.log(isLoading);
 
   console.log(orders);
 
