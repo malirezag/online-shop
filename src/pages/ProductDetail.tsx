@@ -8,48 +8,64 @@ import ProductImages from "../ui/ProductImages";
 import Title from "../ui/Title";
 import SuggestProduct from "../ui/SuggestProduct";
 import Reviews from "../ui/Reviews";
+import useGetProducts from "../components/products/useGetProducts";
+import { useSearchParams } from "react-router-dom";
 
 export default function ProductDetails() {
+  const { products, isLoading } = useGetProducts();
+  const [searchparams] = useSearchParams();
+  const product = products?.filter(
+    (product) => product.id === Number(searchparams.get("id"))
+  )[0];
+
+  const colorArr: string[] | undefined = product?.color.split("-");
+  console.log(colorArr);
+
+  const sizeArr: string[] | undefined = product?.size.split("-");
+
   return (
     <div>
       <Header />
       <NavHistory />
 
-      <div className="mx-5">
-        <ProductImages />
-        <Title
-          title="One Life Graphic T-shirt"
-          className="text-left text-[1.8rem]"
-        />
-        <Price className="my-2 space-x-2" />
-        <p className="text-gray-400 text-sm pt-3 pb-5 border-b border-gray-300 mb-5">
-          This graphic t-shirt which is perfect for any occasion. Crafted from a
-          soft and breathable fabric, it offers superior comfort and style.
-        </p>
+      <div className="mx-5 lg:mt-5 ">
+        <div className="flex flex-col md:flex-row gap-5 max-w-330 mx-auto">
+          <ProductImages />
+          <div className="md:w-[43%] ">
+            <Title title={product?.name} className="text-left text-[1.8rem]" />
+            {product && <Price product={product} className="my-2 space-x-2" />}
+            <p className="text-gray-400 text-sm pt-3 pb-5 border-b border-gray-300 mb-5">
+              {product?.exp}
+            </p>
 
-        <p className="text-gray-500">Select Colors</p>
-        <ul className="flex flex-row mt-3 pb-5 mb-5 border-b border-gray-300  gap-4">
-          <li className="w-8 h-8 bg-stone-800 rounded-full"></li>
-          <li className="w-8 h-8 bg-stone-700 rounded-full"></li>
-          <li className="w-8 h-8 bg-green-800 rounded-full"></li>
-        </ul>
+            <p className="text-gray-500">Select Colors</p>
+            <ul className="flex flex-row mt-3 pb-5 mb-5 border-b border-gray-300  gap-4">
+              {colorArr?.map((color) => (
+                <li
+                  key={color}
+                  className={`w-8 h-8 rounded-full`}
+                  style={{ backgroundColor: color }}
+                ></li>
+              ))}
+            </ul>
 
-        <p className="text-gray-500">Choose Size</p>
-        <ul className="flex flex-row mt-3 pb-5 mb-5 border-b border-gray-300  gap-2 justify-around text-gray-800 ">
-          <li className=" bg-gray-100 rounded-full px-4 py-2">Small</li>
-          <li className=" bg-gray-100 rounded-full px-4 py-2">Medium</li>
-          <li className=" bg-gray-100 rounded-full px-4 py-2">Large</li>
-          <li className=" bg-gray-100 rounded-full px-4 py-2">X-Large</li>
-        </ul>
+            <p className="text-gray-500">Choose Size</p>
+            <ul className="flex flex-row mt-3 pb-5 mb-5 border-b border-gray-300  gap-2 text-gray-800 items-center text-nowrap flex-wrap text-sm lg:text-base">
+              {sizeArr?.map((size) => (
+                <li className=" bg-gray-100 rounded-full px-4 py-2">{size}</li>
+              ))}
+            </ul>
 
-        <div className="flex flex-row gap-2 items-center mb-8">
-          <Counter className="text-xl" />
-          <button className="bg-black text-white text-xl py-2 rounded-full px-4 w-full">
-            Add to Cart
-          </button>
+            <div className="flex flex-row gap-2 items-center mb-8">
+              <Counter className="text-xl" />
+              <button className="bg-black text-white text-xl py-2 rounded-full px-4 w-full">
+                Add to Cart
+              </button>
+            </div>
+          </div>
         </div>
 
-        <div className="border-b border-gray-300 mb-5 flex flex-row justify-around">
+        <div className="border-b border-gray-300 mb-5 flex flex-row justify-around lg:justify-center lg:gap-70">
           <button className="text-gray-400 pb-3 border-b-2 border-black">
             Product Details
           </button>

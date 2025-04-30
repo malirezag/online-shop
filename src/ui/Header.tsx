@@ -1,14 +1,16 @@
 import { FiMenu, FiShoppingCart } from "react-icons/fi";
 import { HiOutlineMagnifyingGlass } from "react-icons/hi2";
 import { IoPersonCircleOutline } from "react-icons/io5";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 function Header() {
   return (
     <header className="flex flex-row justify-between lg:justify-around items-center text-3xl py-4 px-3">
       <div className="flex flex-row gap-4 items-center ">
         <FiMenu className="lg:hidden" />
-        <h1 className=" font-bold">SHOP.CO</h1>
+        <Link to="/" className=" font-bold">
+          SHOP.CO
+        </Link>
       </div>
 
       <div className="lg:flex text-xl gap-10 hidden items-center justify-around">
@@ -30,15 +32,23 @@ function Header() {
       </div>
 
       <div className="text-2xl flex flex-row gap-3 items-center ">
-        <button className="lg:hidden">
+        <button className="sm:hidden">
           <HiOutlineMagnifyingGlass />
         </button>
-        <button>
+        <div className="flex-row items-center bg-gray-100 py-1 px-4 gap-2 rounded-full hidden sm:flex lg:hidden ">
+          <HiOutlineMagnifyingGlass />
+          <input
+            type="text"
+            className=" outline-0 placeholder-gray-400 text-lg"
+            placeholder="Search Products"
+          />
+        </div>
+        <Link to="/cart">
           <FiShoppingCart />
-        </button>
-        <button>
+        </Link>
+        <Link to="">
           <IoPersonCircleOutline />
-        </button>
+        </Link>
       </div>
     </header>
   );

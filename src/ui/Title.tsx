@@ -2,7 +2,7 @@ export default function Title({
   title,
   className,
 }: {
-  title: string;
+  title: string | undefined;
   className?: string;
 }) {
   return (

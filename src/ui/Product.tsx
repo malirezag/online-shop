@@ -1,12 +1,27 @@
+import { useNavigate } from "react-router-dom";
 import Price from "./Price";
 
-export default function Product() {
-  return (
-    <div className="mx-3 font-medium pb-4">
-      <img src="/images/cloth.png" className="min-w-60 h-55" />
+type productType = {
+  image: string;
+  exp: string;
+  name: string;
+  off: number;
+  price: number;
+  id: number;
+};
 
-      <p>T-SHIRT WITH TAPE DETAILS</p>
-      <Price />
+export default function Product({ product }: { product: productType }) {
+  const navigate = useNavigate();
+
+  return (
+    <div
+      onClick={() => navigate(`/product?id=${product.id}`)}
+      className=" font-medium pb-4 w-35 sm:w-55 xl:w-65 flex flex-col items-center "
+    >
+      <img src={product?.image} className=" aspect-square" />
+
+      <p className=" truncate max-w-44 text-lg">{product?.name}</p>
+      <Price product={product} />
     </div>
   );
 }

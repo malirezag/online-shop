@@ -4,7 +4,7 @@ import EmailForm from "../ui/EmailForm";
 import Footer from "../ui/Footer";
 import NavHistory from "../ui/NavHistory";
 import CartSummary from "../ui/CartSummary";
-import CartOrders from "../ui/CartOrders";
+import CartOrders from "../components/orders/CartOrders";
 
 export default function Cart() {
   return (

@@ -5,6 +5,10 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Cart from "./pages/Cart";
 import ProductDetails from "./pages/ProductDetail";
+import Category from "./pages/Category";
+import ScrollToTop from "./helpers/ScrollToTop";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+const queryClient = new QueryClient();
 
 function App() {
   useEffect(() => {
@@ -16,13 +20,17 @@ function App() {
   });
 
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route index element={<Applayout />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/x" element={<ProductDetails />} />
-      </Routes>
-    </BrowserRouter>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <ScrollToTop />
+        <Routes>
+          <Route index element={<Applayout />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/category/:category" element={<Category />} />
+          <Route path="/product" element={<ProductDetails />} />
+        </Routes>
+      </BrowserRouter>
+    </QueryClientProvider>
   );
 }
 

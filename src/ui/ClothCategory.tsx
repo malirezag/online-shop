@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Title from "./Title";
 
 export default function ClothCategory() {
@@ -8,30 +9,30 @@ export default function ClothCategory() {
         className="mx-10 mb-4 mt-9 xl:text-5xl xl:mt-12 "
       />
       <div className="grid grid-cols-1 gap-4 md:gap-7 sm:grid-cols-3 px-5 max-w-250">
-        <button className="col-span-1">
+        <Link to="/category/casual" className="col-span-1">
           <img
             src="/images/style (1).png "
             className="w-full sm:h-50 rounded-4xl md:h-55 "
           />
-        </button>
-        <button className="col-span-2 ">
+        </Link>
+        <Link to="/category/formal" className="col-span-2 ">
           <img
             src="/images/style (2).png"
             className="w-full sm:h-50 rounded-4xl md:h-55 object-cover object-top-left contrast-120"
           />
-        </button>
-        <button className="col-span-2">
+        </Link>
+        <Link className="col-span-2" to="/category/party">
           <img
             src="/images/style (3).png"
             className="w-full sm:h-50 rounded-4xl md:h-55 object-cover object-top-left contrast-110"
           />
-        </button>
-        <button className="col-span-1">
+        </Link>
+        <Link className="col-span-1" to="/category/gym">
           <img
             src="/images/style (4).png"
             className="w-full sm:h-50 rounded-4xl md:h-55 "
           />
-        </button>
+        </Link>
       </div>
     </div>
   );

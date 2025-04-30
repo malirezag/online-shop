@@ -1,10 +1,13 @@
 import { useEffect, useRef } from "react";
 import Button from "./Button";
-import Product from "./Product";
 import Title from "./Title";
+import useGetProducts from "../components/products/useGetProducts";
+import Product from "./Product";
 
 export default function NewArrival() {
   const ref = useRef<HTMLDivElement | null>(null);
+  const { products } = useGetProducts();
+  console.log(products);
 
   useEffect(() => {
     const container = ref.current;
@@ -26,17 +29,8 @@ export default function NewArrival() {
   return (
     <div className="">
       <Title title="NEW ARRIVALS" className="pb-7 pt-10" data-aos="fade-down" />
-      <div
-        className="flex overflow-x-auto space-x-4 px-4 overflow-x-hidden "
-        ref={ref}
-      >
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
+      <div className="flex overflow-x-auto space-x-4 px-4 " ref={ref}>
+        {products?.map((product) => <Product product={product} />)}
       </div>
       <div className="mx-4 text-center ">
         <Button

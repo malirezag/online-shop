@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react";
 import Product from "./Product";
-import Title from "./Title";
 import Button from "./Button";
 
 export default function SuggestProduct() {
@@ -24,12 +23,10 @@ export default function SuggestProduct() {
   }, []);
 
   return (
-    <div className="">
-      <Title title="NEW ARRIVALS" className="pb-7 pt-10" data-aos="fade-down" />
-      <div
-        className="flex overflow-x-auto space-x-4 px-4 overflow-x-hidden "
-        ref={ref}
-      >
+    <>
+      <div className="flex overflow-x-auto space-x-4 px-4" ref={ref}>
+        <Product />
+        <Product />
         <Product />
         <Product />
         <Product />
@@ -41,6 +38,6 @@ export default function SuggestProduct() {
           className="text-black border border-gray-400 mt-7 mb-10 md:w-70               "
         />
       </div>
-    </div>
+    </>
   );
 }
