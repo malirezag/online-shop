@@ -13,6 +13,8 @@ import { useSearchParams } from "react-router-dom";
 
 export default function ProductDetails() {
   const { products, isLoading } = useGetProducts();
+  console.log(isLoading);
+
   const [searchparams] = useSearchParams();
   const product = products?.filter(
     (product) => product.id === Number(searchparams.get("id"))
