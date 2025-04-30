@@ -25,12 +25,7 @@ export default function SuggestProduct() {
   return (
     <>
       <div className="flex overflow-x-auto space-x-4 px-4" ref={ref}>
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
+        {/* <Product /> */}
       </div>
       <div className="mx-4 text-center ">
         <Button
