@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import Button from "../../ui/Button";
 import Order from "../../ui/Order";
 import Spinner from "../../ui/Spinner";
 import Title from "../../ui/Title";
