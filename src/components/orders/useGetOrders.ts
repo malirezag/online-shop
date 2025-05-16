@@ -4,8 +4,12 @@ import { getOrders } from "../../services/OrderApi";
 type Order = {
   size: string;
   color: string;
-  order: {
+  count: number;
+  orderId: {
     name: string;
+    price: number;
+    off: number;
+    id: number;
   };
 };
 

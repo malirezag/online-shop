@@ -4,16 +4,20 @@ import Footer from "../ui/Footer";
 import Header from "../ui/Header";
 import NavHistory from "../ui/NavHistory";
 import Title from "../ui/Title";
-// import Product from "../ui/Product";
-// import Pagination from "../ui/Pagination";
 import Filter from "../ui/Filter";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import Products from "../components/products/Products";
+import { useEffect } from "react";
 
 export default function Category() {
   const location = useLocation();
   const path: string[] = location.pathname.split("/");
   const category: string = path[2];
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  useEffect(() => {
+    if (!searchParams.get("page")) navigate("?page=1");
+  }, [navigate, searchParams]);
 
   return (
     <div>

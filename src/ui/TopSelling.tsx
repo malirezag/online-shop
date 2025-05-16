@@ -28,8 +28,11 @@ export default function TopSelling() {
     <div className="border-t border-gray-300">
       <Title title="TOP SELLING" className="pb-7 pt-10" />
 
-      <div ref={scrollRef} className="flex overflow-x-auto space-x-4 px-4  ">
-        {products?.map((product) => <Product product={product} />)}
+      <div
+        ref={scrollRef}
+        className="flex overflow-x-auto space-x-4 px-4 gap-10 "
+      >
+        {products?.products?.map((product) => <Product product={product} />)}
       </div>
 
       <div className="mx-4 text-center">

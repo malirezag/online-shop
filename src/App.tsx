@@ -7,6 +7,7 @@ import Cart from "./pages/Cart";
 import ProductDetails from "./pages/ProductDetail";
 import Category from "./pages/Category";
 import ScrollToTop from "./helpers/ScrollToTop";
+import { Toaster } from "react-hot-toast";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 const queryClient = new QueryClient();
 
@@ -22,6 +23,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
+        <Toaster />
         <ScrollToTop />
         <Routes>
           <Route index element={<Applayout />} />

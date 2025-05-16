@@ -1,24 +1,43 @@
 import { useQuery } from "@tanstack/react-query";
 import { getProducts } from "../../services/ProductApi";
-type ProductType = {
-  image: string;
+import { pagNum } from "../../helpers/PagNum";
+import { useSearchParams } from "react-router-dom";
+
+type Product = {
   id: number;
-  availibility: number;
-  off: number;
-  price: number;
-  size: string;
-  exp: string;
-  name: string;
+  created_at: string;
+  category: "casual" | "formal" | "gym" | "party";
   color: string;
+  size: string;
+  name: string;
+  price: number;
+  off: number;
+  exp: string;
+  image: string;
 };
+
+type ProductsResponse = {
+  count: number | null;
+  products: Product[];
+};
+
 export default function useGetProducts(): {
-  products: ProductType[] | undefined;
+  products: ProductsResponse | undefined;
   isLoading: boolean;
 } {
+  const url = window.location.pathname.split("/")[2];
+  console.log(url);
+
+  const [searchParams] = useSearchParams();
+  const page: number =
+    url !== "All-products" ? 0 : Number(searchParams.get("page")) || 1;
   const { data: products, isLoading } = useQuery({
-    queryKey: ["products"],
-    queryFn: getProducts,
+    queryKey: ["products", page],
+    queryFn: () => getProducts(from, to),
   });
+
+  const to: number = page > 0 ? page * pagNum : (products?.count ?? 1000);
+  const from: number = page > 1 ? (page - 1) * pagNum : 0;
 
   return { products, isLoading };
 }

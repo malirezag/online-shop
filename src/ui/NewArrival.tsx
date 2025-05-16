@@ -4,10 +4,24 @@ import Title from "./Title";
 import useGetProducts from "../components/products/useGetProducts";
 import Product from "./Product";
 
+type Type = {
+  id: number;
+  off: number;
+  price: number;
+  category: "casual" | "gym" | "party" | "formal";
+  color: string;
+  created_at: string;
+  exp: string;
+  size: string;
+  name: string;
+  image: string;
+};
+
 export default function NewArrival() {
   const ref = useRef<HTMLDivElement | null>(null);
   const { products } = useGetProducts();
-  console.log(products);
+  const newArrival: Type[] = products ? products.products.slice(0, 10) : [];
+  console.log(newArrival);
 
   useEffect(() => {
     const container = ref.current;
@@ -29,8 +43,8 @@ export default function NewArrival() {
   return (
     <div className="">
       <Title title="NEW ARRIVALS" className="pb-7 pt-10" data-aos="fade-down" />
-      <div className="flex overflow-x-auto space-x-4 px-4 " ref={ref}>
-        {products?.map((product) => <Product product={product} />)}
+      <div className="flex overflow-x-auto space-x-4 px-4 md:gap-10" ref={ref}>
+        {newArrival?.map((product) => <Product product={product} />)}
       </div>
       <div className="mx-4 text-center ">
         <Button

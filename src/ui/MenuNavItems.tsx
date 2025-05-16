@@ -1,0 +1,35 @@
+import { Link, NavLink, useNavigate } from "react-router-dom";
+
+export default function MenuNavItems() {
+  const navigate = useNavigate();
+  return (
+    <div className="flex flex-col justify-start items-start gap-10 lg:gap-8 text-xl lg:text-xl lg:flex-row ">
+      <select
+        className=""
+        onChange={(e) => navigate(`/category/${e.target.value}`)}
+      >
+        <option value="All-products" className="text-sm ">
+          Shop
+        </option>
+        <option value="All-products" className="text-sm">
+          <NavLink to="products">All products</NavLink>
+        </option>
+        <option value="gym" className="text-sm">
+          <Link to="/category/gym">Gym</Link>
+        </option>
+        <option value="casual" className="text-sm">
+          <Link to="/category/casual">Casual</Link>
+        </option>
+        <option value="formal" className="text-sm">
+          <Link to="/category/formal">Formal</Link>
+        </option>
+        <option value="party" className="text-sm">
+          <Link to="/category/party">Party</Link>
+        </option>
+      </select>
+      <NavLink to="">On Sale</NavLink>
+      <NavLink to="">New Arriavals</NavLink>
+      <NavLink to="">Brands</NavLink>
+    </div>
+  );
+}

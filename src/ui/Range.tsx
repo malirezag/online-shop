@@ -1,9 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { getTrackBackground } from "react-range";
 import { Range as Ranged } from "react-range";
+import { useSearchParams } from "react-router-dom";
 
 export default function Range() {
   const [value, setValue] = useState<number[]>([0, 3000]);
+  const [searchParams, setSearchParams] = useSearchParams();
+  useEffect(() => {
+    searchParams.set("from", value[0].toString());
+    setSearchParams(searchParams);
+    searchParams.set("to", value[1].toString());
+    setSearchParams(searchParams);
+  }, [searchParams, setSearchParams, value]);
   return (
     <div className="my-4 mx-3">
       <Ranged
