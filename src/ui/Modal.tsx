@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 
 interface ModalcontextType {
   openName: string | null;
-  setopenName: (name: string) => void;
+  setopenName: (name: string | null) => void;
 }
 
 const ModalContext = createContext<ModalcontextType | undefined>(undefined);
