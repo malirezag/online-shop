@@ -7,7 +7,7 @@ import { colors } from "../helpers/colors";
 import { useSearchParams } from "react-router-dom";
 import { sizes } from "../helpers/sizes";
 
-export default function Filter() {
+export default function Filter({ className }: { className: string }) {
   const [sizee, setSize] = useState("");
   const [color, setColor] = useState("");
   // const [price, setPrice] = useState([0, 3000]);
@@ -25,15 +25,17 @@ export default function Filter() {
   };
 
   return (
-    <div className="md:min-w-60 md:max-w-75 hidden md:flex border border-gray-300 rounded-2xl md:flex-col h-fit px-3 py-4 divide-y divide-gray-300 gap-3">
-      <div className="flex flex-row justify-between items-center">
-        <Title title="Filter" className="text-lg" />
+    <div
+      className={`md:min-w-60 md:max-w-75 border border-gray-300 rounded-2xl md:flex-col h-fit px-3 py-4 divide-y divide-gray-300 gap-3 ${className} mx-5 md:mx-0`}
+    >
+      <div className="flex flex-row justify-between items-center pb-4 md:pb-0">
+        <Title title="Filter" className="text-lg " />
         <button className=" rounded-full text-xl ">
           <TbAdjustments />
         </button>
       </div>
 
-      <div className="text-sm text-gray-600 flex flex-col items-start gap-3 pb-5 ">
+      <div className="text-sm text-gray-600 flex flex-col items-start gap-3 pb-5 pt-5 md:py-0 ">
         <button className="flex justify-between items-center w-full">
           T-shirts{" "}
           <span>
@@ -66,15 +68,10 @@ export default function Filter() {
         </button>
       </div>
 
-      <div>
-        <Title title="Price" className="text-lg text-left font-semibold" />
-        <Range />
-      </div>
-
       <div className="pb-5">
         <Title
           title="Colors"
-          className="text-lg text-left font-semibold mb-2"
+          className="text-lg text-left font-semibold mb-2 py-2 md:py-0 "
         />
         <div className="flex flex-wrap justify-center gap-3 flex-row">
           {colors.map((item) => (
@@ -98,8 +95,19 @@ export default function Filter() {
       </div>
 
       <div>
+        <Title
+          title="Price"
+          className="text-lg text-left font-semibold  py-2 md:py-0"
+        />
+        <Range />
+      </div>
+
+      <div>
         {" "}
-        <Title title="Sizes" className="text-lg text-left font-semibold mb-2" />
+        <Title
+          title="Sizes"
+          className="text-lg text-left font-semibold mb-2  py-2 md:py-0"
+        />
         <ul className="flex flex-row pb-5 border-b border-gray-300  gap-2 text-gray-800 items-center text-nowrap flex-wrap text-sm ">
           {sizes.map((size) => (
             <li key={size} onClick={() => handleSize(size)}>
@@ -123,7 +131,9 @@ export default function Filter() {
       </div>
 
       <div className="text-sm text-gray-600 flex flex-col items-start gap-3 pb-5 ">
-        <p className="text-lg text-black font-semibold">Dress Style</p>
+        <p className="text-lg text-black font-semibold  py-2 md:py-0">
+          Dress Style
+        </p>
         <button className="flex justify-between items-center w-full">
           Casual{" "}
           <span>

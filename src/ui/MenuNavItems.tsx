@@ -1,12 +1,20 @@
+import React from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 
-export default function MenuNavItems() {
+export default function MenuNavItems({
+  setIsOpen,
+}: {
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}) {
   const navigate = useNavigate();
   return (
     <div className="flex flex-col justify-start items-start gap-10 lg:gap-8 text-xl lg:text-xl lg:flex-row ">
       <select
-        className=""
-        onChange={(e) => navigate(`/category/${e.target.value}`)}
+        className="w-20"
+        onChange={(e) => {
+          navigate(`/category/${e.target.value}`);
+          setIsOpen(false);
+        }}
       >
         <option value="All-products" className="text-sm ">
           Shop
@@ -29,7 +37,7 @@ export default function MenuNavItems() {
       </select>
       <NavLink to="">On Sale</NavLink>
       <NavLink to="">New Arriavals</NavLink>
-      <NavLink to="">Brands</NavLink>
+      {/* <NavLink to="">Brands</NavLink> */}
     </div>
   );
 }

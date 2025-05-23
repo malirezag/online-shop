@@ -5,11 +5,17 @@ import { IoPersonCircleOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import Menu from "./Menu";
 import MenuNavItems from "./MenuNavItems";
+import useGetUser from "../components/auth/useGetUser";
+import { useLogout } from "../components/auth/useLogout";
 
 function Header() {
+  const { logout } = useLogout();
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const { user } = useGetUser();
+  console.log(user);
+
   return (
-    <header className="flex flex-row justify-between lg:justify-around items-center text-3xl py-4 px-3">
+    <header className="flex flex-row justify-between items-center text-3xl py-4 px-3">
       <div className="flex flex-row gap-4 items-center ">
         {isOpen ? (
           <Menu setIsOpen={setIsOpen} />
@@ -24,7 +30,7 @@ function Header() {
       </div>
 
       <div className="lg:flex text-xl gap-10 hidden items-center justify-around">
-        <MenuNavItems />
+        <MenuNavItems setIsOpen={setIsOpen} />
         <div className="flex flex-row items-center bg-gray-100 py-2 px-4 gap-2 rounded-full ">
           <HiOutlineMagnifyingGlass />
           <input
@@ -47,12 +53,33 @@ function Header() {
             placeholder="Search Products"
           />
         </div>
-        <Link to="/cart">
-          <FiShoppingCart />
-        </Link>
-        <Link to="">
-          <IoPersonCircleOutline />
-        </Link>
+
+        {user?.role === "authenticated" ? (
+          <div className="flex flex-row gap-5">
+            <Link to="/cart">
+              <FiShoppingCart className="lg:text-3xl" />
+            </Link>
+            <Link to="">
+              <IoPersonCircleOutline className="lg:text-3xl" />
+            </Link>
+
+            <p className="hidden md:block">{user?.user_metadata?.name}</p>
+
+            <button
+              onClick={() => logout()}
+              className="text-base bg-gray-200 px-3 py-1 rounded-xl hidden lg:block"
+            >
+              logout
+            </button>
+          </div>
+        ) : (
+          <Link
+            to="/login"
+            className="bg-black text-lg text-white px-3 rounded-xl py-1"
+          >
+            Login
+          </Link>
+        )}
       </div>
     </header>
   );

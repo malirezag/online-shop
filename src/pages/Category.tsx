@@ -8,6 +8,7 @@ import Filter from "../ui/Filter";
 import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import Products from "../components/products/Products";
 import { useEffect } from "react";
+import Modal from "../ui/Modal";
 
 export default function Category() {
   const location = useLocation();
@@ -27,13 +28,20 @@ export default function Category() {
       <div className="px-5 flex flex-col gap-5 mb-5 max-w-330 mx-auto ">
         <div className="flex flex-row justify-between items-center ">
           <Title title={category} className="" />
-          <button className=" rounded-full text-2xl ">
-            <TbAdjustments />
-          </button>
+          <Modal>
+            <Modal.Open open="filter">
+              <button className=" rounded-full text-2xl md:hidden ">
+                <TbAdjustments />
+              </button>
+            </Modal.Open>
+            <Modal.Window name="filter">
+              <Filter className="" />
+            </Modal.Window>
+          </Modal>
         </div>
 
-        <div className="md:flex md:flex-row ">
-          <Filter />
+        <div className="md:flex md:flex-row md:gap-3">
+          <Filter className={"hidden md:flex"} />
           <Products />
         </div>
       </div>

@@ -47,10 +47,11 @@ export default function NewArrival() {
         {newArrival?.map((product) => <Product product={product} />)}
       </div>
       <div className="mx-4 text-center ">
-        <Button
+        {/* <Button
+          to=""
           text="View All"
-          className="text-black border border-gray-400 mt-7 mb-10 md:w-70               "
-        />
+          className="text-black border border-gray-400 mt-7 mb-10 md:w-70 px-10"
+        /> */}
       </div>
     </div>
   );

@@ -1,17 +1,18 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { getTrackBackground } from "react-range";
 import { Range as Ranged } from "react-range";
 import { useSearchParams } from "react-router-dom";
+import { FaCircleCheck } from "react-icons/fa6";
 
 export default function Range() {
   const [value, setValue] = useState<number[]>([0, 3000]);
   const [searchParams, setSearchParams] = useSearchParams();
-  useEffect(() => {
+  function handleClick() {
     searchParams.set("from", value[0].toString());
     setSearchParams(searchParams);
     searchParams.set("to", value[1].toString());
     setSearchParams(searchParams);
-  }, [searchParams, setSearchParams, value]);
+  }
   return (
     <div className="my-4 mx-3">
       <Ranged
@@ -53,10 +54,20 @@ export default function Range() {
           />
         )}
       />
-      <p className="text-center my-5">
-        from <strong className="mx-2">{value[0]}$</strong> to{" "}
-        <strong className="mx-2">{value[1]}$</strong>
-      </p>
+      <div className="flex flex-row justify-between my-7">
+        {" "}
+        <p className="text-center  justify-around flex row items-center ">
+          from <strong className="mx-2">{value[0]}$</strong> to{" "}
+          <strong className="mx-2">{value[1]}$</strong>
+        </p>
+        {
+          <button onClick={handleClick}>
+            <FaCircleCheck
+              className={`size-6 ${value[0] !== 0 || value[1] !== 3000 ? "text-black" : "text-gray-400"}`}
+            />
+          </button>
+        }
+      </div>
     </div>
   );
 }

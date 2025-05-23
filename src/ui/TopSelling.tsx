@@ -1,5 +1,4 @@
 import { useRef, useEffect } from "react";
-import Button from "./Button";
 import Product from "./Product";
 import Title from "./Title";
 import useGetProducts from "../components/products/useGetProducts";
@@ -36,10 +35,10 @@ export default function TopSelling() {
       </div>
 
       <div className="mx-4 text-center">
-        <Button
+        {/* <Button
           text="View All"
           className="text-black border border-gray-400 my-7 md:w-70"
-        />
+        /> */}
       </div>
     </div>
   );

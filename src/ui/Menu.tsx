@@ -28,7 +28,7 @@ export default function Menu({
           </p>
         </div>
 
-        <MenuNavItems />
+        <MenuNavItems setIsOpen={setIsOpen} />
       </div>
 
       <button className="w-fit bg-gray-500 px-5 py-2 rounded-xl">

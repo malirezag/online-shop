@@ -16,9 +16,9 @@ export default function Product({ product }: { product: productType }) {
   return (
     <div
       onClick={() => navigate(`/product?id=${product.id}`)}
-      className=" font-medium pb-4 flex flex-col items-center justify-center min-w-45 md:min-w-52 "
+      className=" font-medium pb-4 flex flex-col items-center justify-center min-w-40 md:min-w-52 "
     >
-      <img src={product?.image} className=" aspect-square " />
+      <img src={product?.image} className=" size-55 sm:size-45 " />
 
       <p className=" truncate max-w-30 text-lg">{product?.name}</p>
       <Price product={product} />

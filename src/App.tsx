@@ -9,6 +9,9 @@ import Category from "./pages/Category";
 import ScrollToTop from "./helpers/ScrollToTop";
 import { Toaster } from "react-hot-toast";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import SignupForm from "./components/auth/SignupForm";
+import LoginForm from "./components/auth/LoginForm";
+import WaitingConfirm from "./pages/waitingConfirm";
 const queryClient = new QueryClient();
 
 function App() {
@@ -30,6 +33,9 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/category/:category" element={<Category />} />
           <Route path="/product" element={<ProductDetails />} />
+          <Route path="/signup" element={<SignupForm />} />
+          <Route path="/login" element={<LoginForm />} />
+          <Route path="/wait" element={<WaitingConfirm />} />
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>

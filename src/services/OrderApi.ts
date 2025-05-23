@@ -6,10 +6,11 @@ type Type = {
   count: number;
 };
 
-export async function getOrders() {
+export async function getOrders(userId: string) {
   const { data: cart, error } = await supabase
     .from("cart")
     .select("*,orderId(*)")
+    .eq("userId", userId)
     .order("id");
 
   if (error) throw new Error("could not fetch orders");
@@ -20,13 +21,15 @@ export async function getOrders() {
 export async function setOrder({
   order,
   orderId,
+  userId,
 }: {
   order: Type;
   orderId: number;
+  userId: string;
 }) {
   const { data, error } = await supabase
     .from("cart")
-    .insert([{ ...order, orderId }])
+    .insert([{ ...order, orderId, userId }])
     .select();
   if (error) throw new Error("could not fetch orders");
 

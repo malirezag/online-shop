@@ -1,6 +1,6 @@
 export default function Spinner({ className }: { className?: string }) {
   return (
-    <div className={`max-w-100 mx-auto  my-auto size-5  ${className}`}>
+    <div className={`max-w-100 mx-auto size-5  ${className}`}>
       <svg
         className="animate-spin  text-gray-500  "
         xmlns="http://www.w3.org/2000/svg"

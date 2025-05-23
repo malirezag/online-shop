@@ -10,4 +10,6 @@ export const colors = [
   "green",
   "orange",
   "purple",
+  "navy",
+  "Beige",
 ];
