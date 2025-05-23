@@ -30,12 +30,18 @@ function Window({
   children: React.ReactNode;
   name: string;
 }) {
-  const { openName } = useModalContex();
+  const { openName, setopenName } = useModalContex();
 
   if (name !== openName) return null;
   return createPortal(
-    <div className="fixed inset-0 flex justify-center w-full py-10  bg-neutral-50 overflow-y-auto">
-      {children}
+    <div className="fixed inset-0 flex flex-col items-center justify-center w-full h-full   bg-neutral-50  ">
+      <div className="overflow-y-auto py-5">{children}</div>
+      <button
+        onClick={() => setopenName(null)}
+        className="bg-black w-full text-gray-200 py-2 text-xl"
+      >
+        OK
+      </button>
     </div>,
     document.body
   );
