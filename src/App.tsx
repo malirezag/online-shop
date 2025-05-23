@@ -11,7 +11,7 @@ import { Toaster } from "react-hot-toast";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import SignupForm from "./components/auth/SignupForm";
 import LoginForm from "./components/auth/LoginForm";
-import WaitingConfirm from "./pages/waitingConfirm";
+import WaitingConfirm from "./pages/WaitingConfirm";
 const queryClient = new QueryClient();
 
 function App() {

@@ -1,5 +1,4 @@
 import { useEffect, useRef } from "react";
-import Button from "./Button";
 import Title from "./Title";
 import useGetProducts from "../components/products/useGetProducts";
 import Product from "./Product";
