@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import Brands from "../ui/Brands";
 import Button from "../ui/Button";
 import ClothCategory from "../ui/ClothCategory";
@@ -9,6 +10,7 @@ import Numbers from "../ui/Numbers";
 import TopSelling from "../ui/TopSelling";
 
 function Home() {
+  const navigate = useNavigate();
   return (
     <main className="bg-gray-100 flex flex-col">
       <div className="flex flex-col md:flex-row lg:justify-around items-center">
@@ -27,7 +29,11 @@ function Home() {
             style.
           </p>
 
-          <Button text="Shop Now" className="bg-black text-white" />
+          <Button
+            text="Shop Now"
+            className="bg-black text-white"
+            onClick={() => navigate("category/All-products")}
+          />
           <Numbers />
         </div>
         <img

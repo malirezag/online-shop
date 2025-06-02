@@ -9,13 +9,12 @@ import useGetUser from "../components/auth/useGetUser";
 import { useLogout } from "../components/auth/useLogout";
 
 function Header() {
-  const { logout } = useLogout();
+  const { logout, isPending } = useLogout();
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const { user } = useGetUser();
-  console.log(user);
 
   return (
-    <header className="flex flex-row justify-between items-center text-3xl py-4 px-3">
+    <header className="flex flex-row justify-around items-center text-3xl py-4 px-3">
       <div className="flex flex-row gap-4 items-center ">
         {isOpen ? (
           <Menu setIsOpen={setIsOpen} />
@@ -63,7 +62,11 @@ function Header() {
               <IoPersonCircleOutline className="lg:text-3xl" />
             </Link>
 
-            <p className="hidden md:block">{user?.user_metadata?.name}</p>
+            {user?.role === "authenticated" ? (
+              <p className="hidden md:block">{user?.user_metadata?.name}</p>
+            ) : (
+              ""
+            )}
 
             <button
               onClick={() => logout()}
@@ -77,7 +80,7 @@ function Header() {
             to="/login"
             className="bg-black text-lg text-white px-3 rounded-xl py-1"
           >
-            Login
+            {isPending ? "wait..." : "Login"}
           </Link>
         )}
       </div>

@@ -3,12 +3,12 @@ import { logoutApi } from "../../services/UserApi";
 
 export function useLogout() {
   const queryclient = useQueryClient();
-  const { mutate: logout } = useMutation({
+  const { mutate: logout, isPending } = useMutation({
     mutationFn: logoutApi,
     onSuccess: () => {
       queryclient.invalidateQueries({ type: "active" });
     },
   });
 
-  return { logout };
+  return { logout, isPending };
 }

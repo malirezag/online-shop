@@ -16,22 +16,22 @@ export default function MenuNavItems({
           setIsOpen(false);
         }}
       >
-        <option value="All-products" className="text-sm ">
+        <option value="All-products" className="text-sm bg-gray-500">
           Shop
         </option>
-        <option value="All-products" className="text-sm">
+        <option value="All-products" className="text-sm bg-gray-500">
           <NavLink to="products">All products</NavLink>
         </option>
-        <option value="gym" className="text-sm">
+        <option value="gym" className="text-sm bg-gray-500">
           <Link to="/category/gym">Gym</Link>
         </option>
-        <option value="casual" className="text-sm">
+        <option value="casual" className="text-sm bg-gray-500">
           <Link to="/category/casual">Casual</Link>
         </option>
-        <option value="formal" className="text-sm">
+        <option value="formal" className="text-sm bg-gray-500">
           <Link to="/category/formal">Formal</Link>
         </option>
-        <option value="party" className="text-sm">
+        <option value="party" className="text-sm bg-gray-500">
           <Link to="/category/party">Party</Link>
         </option>
       </select>

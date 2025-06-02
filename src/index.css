@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+@layer components {
+  .nav:hover {
+    color: rgba(137, 100, 210, 0.864);
+    transition: all;
+    transition-duration: 300ms;
+  }
+}
+
 @font-face {
   font-family: kanit;
   font-style: normal;

@@ -3,13 +3,20 @@ import Pagination from "../../ui/Pagination";
 import Product from "../../ui/Product";
 import Spinner from "../../ui/Spinner";
 import usegetProducts from "./useGetProducts";
+import { useSearchParams } from "react-router-dom";
+import { pagNum } from "../../helpers/PagNum";
 
 export default function Products() {
+  const [searchParams] = useSearchParams();
+  const page: number = Number(searchParams.get("page"));
   const { products, isLoading } = usegetProducts();
   const category = window.location.pathname.split("/")[2];
-  const filteredProduct = products?.products?.filter(
+  const allFiltered = products?.products?.filter(
     (product) => product?.category === category
   );
+  const slicedFilter = products?.products
+    ?.filter((product) => product?.category === category)
+    .slice((page - 1) * (pagNum + 2), page * (pagNum + 2) - 1);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -25,14 +32,16 @@ export default function Products() {
     );
 
   return (
-    <div className="flex flex-col  ">
+    <div className="flex flex-col justify-between w-full ">
       <div className=" flex flex-row flex-wrap md:justify-center justify-around gap-7 ">
         {category !== "All-products"
-          ? filteredProduct?.map((product) => <Product product={product} />)
-          : products?.products?.map((product) => <Product product={product} />)}
+          ? slicedFilter?.map((product) => <Product product={product} />)
+          : products?.products?.map((product) => (
+              <Product key={product.id} product={product} />
+            ))}
       </div>
       {category !== "All-products" ? (
-        <Pagination length={filteredProduct?.length ?? 0} />
+        <Pagination length={allFiltered?.length ?? 0} />
       ) : (
         <Pagination length={products?.count ?? 0} />
       )}

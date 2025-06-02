@@ -2,23 +2,11 @@ import { useQuery } from "@tanstack/react-query";
 import { getProducts } from "../../services/ProductApi";
 import { pagNum } from "../../helpers/PagNum";
 import { useSearchParams } from "react-router-dom";
-
-type Product = {
-  id: number;
-  created_at: string;
-  category: "casual" | "formal" | "gym" | "party";
-  color: string;
-  size: string;
-  name: string;
-  price: number;
-  off: number;
-  exp: string;
-  image: string;
-};
+import { ProductType } from "../../helpers/types";
 
 type ProductsResponse = {
   count: number | null;
-  products: Product[];
+  products: ProductType[];
 };
 
 export default function useGetProducts(): {

@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getOrders } from "../../services/OrderApi";
+import { getAllOrders, getOrders } from "../../services/OrderApi";
 import useGetUser from "../auth/useGetUser";
 
 type Order = {
@@ -23,6 +23,18 @@ export default function useGetOrders(): {
   const { data: orders, isLoading } = useQuery({
     queryKey: ["orders"],
     queryFn: () => getOrders(userId),
+  });
+
+  return { orders, isLoading };
+}
+
+export function useGetAllOrders(): {
+  orders: Order[] | undefined;
+  isLoading: boolean;
+} {
+  const { data: orders, isLoading } = useQuery({
+    queryKey: ["orders"],
+    queryFn: getAllOrders,
   });
 
   return { orders, isLoading };

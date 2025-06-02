@@ -23,7 +23,7 @@ export default function Order({ order }: Type) {
   useEffect(() => {
     updateCount({ count: value, id: order?.id });
   }, [order?.id, updateCount, value]);
-
+  console.log(order?.orderId?.image.split("*")?.[0]);
   return (
     <>
       <div className="flex flex-row gap-4 mx-5 py-5 ">
@@ -32,7 +32,10 @@ export default function Order({ order }: Type) {
             style={{ backgroundColor: order?.color }}
             className="size-3 m-1 rounded-full absolute opacity-65"
           ></p>
-          <img src={order?.orderId?.image} className="w-29 h-29" />
+          <img
+            src={order?.orderId?.image.split("*")?.[0]}
+            className="w-29 h-29 rounded-lg"
+          />
         </div>
 
         <div className="w-full">

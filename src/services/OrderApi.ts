@@ -18,6 +18,17 @@ export async function getOrders(userId: string) {
   return cart;
 }
 
+export async function getAllOrders() {
+  const { data: cart, error } = await supabase
+    .from("cart")
+    .select("*,orderId(*)")
+    .order("id");
+
+  if (error) throw new Error("could not fetch orders");
+
+  return cart;
+}
+
 export async function setOrder({
   order,
   orderId,

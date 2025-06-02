@@ -10,15 +10,18 @@ export default function CartSummary() {
       (sum, order) => sum + order?.orderId.price * order?.count,
       0
     ) ?? 0;
-  const total: number =
-    orders?.reduce(
-      (sum, order) =>
-        order?.orderId?.price * order?.count -
-        (order?.orderId?.price * order?.orderId?.off * order?.count) / 100 +
-        sum,
-      0
-    ) ?? 0;
-  const totalDiscount: number = Math.ceil(subtotal - total);
+  const total: number = Number(
+    orders
+      ?.reduce(
+        (sum, order) =>
+          order?.orderId?.price * order?.count -
+          (order?.orderId?.price * order?.orderId?.off * order?.count) / 100 +
+          sum,
+        0
+      )
+      .toFixed(1) ?? 0
+  );
+  const totalDiscount: number = Number(Math.ceil(subtotal - total).toFixed(1));
   const dicountPercent: number = Math.ceil(
     ((subtotal - total) / subtotal) * 100
   );

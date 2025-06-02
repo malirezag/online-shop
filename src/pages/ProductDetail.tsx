@@ -8,13 +8,14 @@ import Title from "../ui/Title";
 import SuggestProduct from "../ui/SuggestProduct";
 import Reviews from "../ui/Reviews";
 import useGetProducts from "../components/products/useGetProducts";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { SubmitHandler, useForm } from "react-hook-form";
 import React, { useState } from "react";
 import useOrder from "../components/orders/useOrder";
 import useGetOrders from "../components/orders/useGetOrders";
 import { FiShoppingCart } from "react-icons/fi";
 import Spinner from "../ui/Spinner";
+import useGetUser from "../components/auth/useGetUser";
 
 type Inputs = { color: string; size: string; count: number };
 
@@ -31,11 +32,12 @@ export default function ProductDetails() {
     formState: { isValid },
   } = useForm<Inputs>({ mode: "onChange" });
   const formDtata = watch();
-
+  const navigate = useNavigate();
+  const { user } = useGetUser();
   const { products } = useGetProducts();
   const product = products?.products?.filter((item) => item?.id === orderId)[0];
-  const colorArr: string[] | undefined = product?.color.split("-");
-  const sizeArr: string[] | undefined = product?.size.split("-");
+  const colorArr: string[] | undefined = product?.color.split(",");
+  const sizeArr: string[] | undefined = product?.size.split(",");
   const { setorder, isPending } = useOrder();
   const isInCart = orders?.some(
     (item) =>
@@ -44,7 +46,8 @@ export default function ProductDetails() {
       item.size === formDtata.size
   );
   const onsubmit: SubmitHandler<Inputs> = (data) => {
-    setorder({ order: data, orderId });
+    if (user?.role === "authenticated") setorder({ order: data, orderId });
+    if (user?.role !== "authenticated") navigate("/login");
   };
   const handleInc = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -64,14 +67,14 @@ export default function ProductDetails() {
 
       <div className="mx-5 lg:mt-5 ">
         {isLoading ? (
-          <Spinner />
+          <Spinner className="h-50 " />
         ) : (
           <form
             className="flex flex-col md:flex-row gap-5 max-w-330 mx-auto"
             onSubmit={handleSubmit(onsubmit)}
           >
             <ProductImages />
-            <div className="md:w-[43%] ">
+            <div className="md:w-[43%] lg:w-[60%]">
               <Title
                 title={product?.name}
                 className="text-left text-[1.8rem]"

@@ -31,7 +31,9 @@ export default function TopSelling() {
         ref={scrollRef}
         className="flex overflow-x-auto space-x-4 px-4 gap-10 "
       >
-        {products?.products?.map((product) => <Product product={product} />)}
+        {products?.products?.map((product) => (
+          <Product key={product.id} product={product} />
+        ))}
       </div>
 
       <div className="mx-4 text-center">

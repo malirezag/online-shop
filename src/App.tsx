@@ -12,6 +12,11 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import SignupForm from "./components/auth/SignupForm";
 import LoginForm from "./components/auth/LoginForm";
 import WaitingConfirm from "./pages/WaitingConfirm";
+import Cms from "./pages/Cms";
+import Dashboard from "./components/cms/Dashboard";
+import Customers from "./components/cms/Customers";
+import AddProduct from "./components/cms/AddProduct";
+import UpdateProducts from "./components/cms/UpdateProducts";
 const queryClient = new QueryClient();
 
 function App() {
@@ -36,6 +41,12 @@ function App() {
           <Route path="/signup" element={<SignupForm />} />
           <Route path="/login" element={<LoginForm />} />
           <Route path="/wait" element={<WaitingConfirm />} />
+          <Route path="/cms" element={<Cms />}>
+            <Route path="dashboard" element={<Dashboard />} />
+            <Route path="customers" element={<Customers />} />
+            <Route path="add-product" element={<AddProduct />} />
+            <Route path="update-products" element={<UpdateProducts />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>

@@ -23,10 +23,10 @@ export default function Pagination({ length }: { length: number | 0 }) {
 
   if (length === 0 || length < pagNum) return null;
   return (
-    <div className="flex flex-row items-center justify-around my-5 border-t border-gray-300">
+    <div className="flex flex-row items-center justify-around my-5 border-t border-gray-300 pt-5 w-full">
       <button
         onClick={handlePrev}
-        className="flex flex-row border p-2 rounded-xl border-gray-300 text-sm sm:text-lg items-center mt-5"
+        className="flex flex-row border p-2 rounded-xl border-gray-300 text-sm sm:text-lg items-center "
       >
         <span>
           <GrFormPreviousLink className="text-xl md:text-2xl" />

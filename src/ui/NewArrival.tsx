@@ -19,7 +19,9 @@ type Type = {
 export default function NewArrival() {
   const ref = useRef<HTMLDivElement | null>(null);
   const { products } = useGetProducts();
-  const newArrival: Type[] = products ? products.products.slice(0, 10) : [];
+  const newArrival: Type[] = products
+    ? [...products.products].reverse().slice(0, 10)
+    : [];
   console.log(newArrival);
 
   useEffect(() => {
@@ -43,7 +45,9 @@ export default function NewArrival() {
     <div className="">
       <Title title="NEW ARRIVALS" className="pb-7 pt-10" data-aos="fade-down" />
       <div className="flex overflow-x-auto space-x-4 px-4 md:gap-10" ref={ref}>
-        {newArrival?.map((product) => <Product product={product} />)}
+        {newArrival?.map((product) => (
+          <Product key={product.id} product={product} />
+        ))}
       </div>
       <div className="mx-4 text-center ">
         {/* <Button

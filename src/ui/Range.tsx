@@ -56,14 +56,14 @@ export default function Range() {
       />
       <div className="flex flex-row justify-between my-7">
         {" "}
-        <p className="text-center  justify-around flex row items-center ">
+        <p className="text-center justify-around flex row items-center ">
           from <strong className="mx-2">{value[0]}$</strong> to{" "}
           <strong className="mx-2">{value[1]}$</strong>
         </p>
         {
           <button onClick={handleClick}>
             <FaCircleCheck
-              className={`size-6 ${value[0] !== 0 || value[1] !== 3000 ? "text-black" : "text-gray-400"}`}
+              className={`size-6 ${value[0] !== 0 || value[1] !== 3000 ? "text-black active:text-gray-500" : "text-gray-400"}`}
             />
           </button>
         }

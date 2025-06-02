@@ -18,7 +18,7 @@ export default function LoginForm() {
   } = useForm<LoginFormInputs>();
 
   const onSubmit = (data: LoginFormInputs) => {
-    login(data, { onSuccess: () => navigate("/") });
+    login(data, { onSuccess: () => navigate(-1) });
   };
 
   return (
