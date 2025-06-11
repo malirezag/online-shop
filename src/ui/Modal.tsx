@@ -53,8 +53,8 @@ function Window({
   return createPortal(
     //default
     !type ? (
-      <div className="fixed inset-0 flex flex-col items-center justify-center  w-full h-full  bg-neutral-50 sm:bg-transparent backdrop-brightness-60 backdrop-blur-xs ">
-        <div className="flex justify-end w-190 pb-2">
+      <div className="fixed inset-0 flex flex-col sm:items-center sm:justify-center w-full h-full  bg-neutral-50 sm:bg-transparent backdrop-brightness-60 backdrop-blur-xs ">
+        <div className="hidden sm:flex justify-end w-190 pb-2">
           <button
             onClick={() => {
               setopenName(null);
@@ -67,7 +67,7 @@ function Window({
           </button>
         </div>
 
-        <div className="overflow-y-auto rounded-3xl bg-white px-10 py-7 text-xl shadow-xl space-y-6 w-200  ">
+        <div className="overflow-y-auto sm:rounded-3xl bg-white px-5 sm:px-7 py-7 text-xl shadow-xl sm:space-y-6 sm:w-200 w-full  ">
           {isValidElement(children)
             ? cloneElement(
                 children as ReactElement<{ setopenName: (val: null) => void }>,

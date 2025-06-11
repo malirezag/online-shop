@@ -26,13 +26,17 @@ export default function Cms() {
 
       <div className="flex flex-row">
         {/* items */}
-        <div className="flex flex-col gap-6 text-lg p-2 py-5 border-r border-gray-300 h-screen w-50">
+        <div className="flex flex-col gap-6 text-lg  py-5 border-r border-gray-300 h-screen w-50">
           {items.map((item) => (
             <NavLink
               to={item}
-              className="nav"
+              className="nav p-2 transition-all duration-300"
               style={({ isActive }) => ({
-                color: isActive ? "rgba(137, 100, 210, 0.864)" : "",
+                color: isActive ? "rgb(63, 41, 107)" : "",
+                backgroundColor: isActive ? "rgba(230, 218, 254, 0.864)" : "",
+                borderLeft: isActive
+                  ? ".5rem solid rgba(137, 101, 209, 0.864)"
+                  : "",
               })}
             >
               {item.charAt(0).toUpperCase() + item.slice(1)}
