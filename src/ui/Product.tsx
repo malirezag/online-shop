@@ -20,7 +20,7 @@ export default function Product({ product }: { product: productType }) {
     >
       <img
         src={product?.image.split("*")?.[0]}
-        className=" size-55 sm:size-45 rounded-xl"
+        className=" size-35 sm:size-45 rounded-xl"
       />
 
       <p className=" truncate max-w-30 text-lg">{product?.name}</p>

@@ -182,7 +182,7 @@ export default function ProductDetails() {
                 ) : (
                   <button
                     type="submit"
-                    disabled={!isValid}
+                    disabled={isPending}
                     className={` ${!isValid ? "bg-gray-300 text-gray-600" : "bg-black text-white"}   text-xl py-2 rounded-full px-4 w-full`}
                   >
                     {isPending ? "Adding..." : "Add to Cart"}

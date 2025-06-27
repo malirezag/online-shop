@@ -53,7 +53,7 @@ function Window({
   return createPortal(
     //default
     !type ? (
-      <div className="fixed inset-0 flex flex-col sm:items-center sm:justify-center w-full h-full  bg-neutral-50 sm:bg-transparent backdrop-brightness-60 backdrop-blur-xs ">
+      <div className="fixed inset-0 flex flex-col sm:items-center sm:justify-center w-full h-full bg-neutral-50 sm:bg-transparent backdrop-brightness-60 backdrop-blur-xs ">
         <div className="hidden sm:flex justify-end w-190 pb-2">
           <button
             onClick={() => {
@@ -86,7 +86,6 @@ function Window({
       </div>
     ) : (
       //confirm
-
       <div className="fixed inset-0 flex justify-center items-center backdrop-brightness-60 backdrop-blur-xs">
         <div className="bg-white w-140 rounded-3xl px-10 py-7 text-xl  shadow-xl space-y-6">
           {" "}

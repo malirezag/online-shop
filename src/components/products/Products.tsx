@@ -32,8 +32,8 @@ export default function Products() {
     );
 
   return (
-    <div className="flex flex-col justify-between w-full ">
-      <div className=" flex flex-row flex-wrap md:justify-center justify-around gap-7 ">
+    <div className="flex sm:flex-col flex-row flex-wrap justify-between w-full ">
+      <div className=" flex flex-row flex-wrap md:justify-center justify-around sm:gap-7 space-y-5 sm:space-y-0">
         {category !== "All-products"
           ? slicedFilter?.map((product) => <Product product={product} />)
           : products?.products?.map((product) => (

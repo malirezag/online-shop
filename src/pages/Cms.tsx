@@ -30,7 +30,7 @@ export default function Cms() {
           {items.map((item) => (
             <NavLink
               to={item}
-              className="nav p-2 transition-all duration-300"
+              className="nav p-2"
               style={({ isActive }) => ({
                 color: isActive ? "rgb(63, 41, 107)" : "",
                 backgroundColor: isActive ? "rgba(230, 218, 254, 0.864)" : "",

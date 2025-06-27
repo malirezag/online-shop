@@ -27,14 +27,14 @@ export default function Order({ order }: Type) {
   return (
     <>
       <div className="flex flex-row gap-4 mx-5 py-5 ">
-        <div className="flex">
+        <div className="flex ">
           <p
             style={{ backgroundColor: order?.color }}
             className="size-3 m-1 rounded-full absolute opacity-65"
           ></p>
           <img
             src={order?.orderId?.image.split("*")?.[0]}
-            className="w-29 h-29 rounded-lg"
+            className=" h-25 w-30 object-center object-cover rounded-lg"
           />
         </div>
 

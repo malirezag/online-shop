@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { useLogin } from "./useLogin";
 import { Link, useNavigate } from "react-router-dom";
 import { IoIosArrowRoundForward } from "react-icons/io";
+import Spinner from "../../ui/Spinner";
 
 type LoginFormInputs = {
   email: string;
@@ -18,7 +19,11 @@ export default function LoginForm() {
   } = useForm<LoginFormInputs>();
 
   const onSubmit = (data: LoginFormInputs) => {
-    login(data, { onSuccess: () => navigate(-1) });
+    login(data, {
+      onSuccess: () => {
+        navigate(-1);
+      },
+    });
   };
 
   return (
@@ -74,7 +79,7 @@ export default function LoginForm() {
           disabled={isSubmitting}
           className="w-full py-2 bg-black text-white rounded-lg hover:bg-white hover:text-black hover:border hover:border-black transition-all font-medium"
         >
-          {isPending ? "Logging in..." : "Login"}
+          {isPending ? <Spinner /> : "Login"}
         </button>
         <Link
           to="/signup"

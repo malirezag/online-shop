@@ -1,14 +1,14 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Applayout from "./ui/Applayout";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useEffect } from "react";
+import { Toaster } from "react-hot-toast";
+import Applayout from "./ui/Applayout";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Cart from "./pages/Cart";
 import ProductDetails from "./pages/ProductDetail";
 import Category from "./pages/Category";
 import ScrollToTop from "./helpers/ScrollToTop";
-import { Toaster } from "react-hot-toast";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import SignupForm from "./components/auth/SignupForm";
 import LoginForm from "./components/auth/LoginForm";
 import WaitingConfirm from "./pages/WaitingConfirm";
@@ -17,6 +17,7 @@ import Dashboard from "./components/cms/Dashboard";
 import Customers from "./components/cms/Customers";
 import AddProduct from "./components/cms/AddProduct";
 import UpdateProducts from "./components/cms/UpdateProducts";
+import { Account } from "./pages/Account";
 const queryClient = new QueryClient();
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
         <Routes>
           <Route index element={<Applayout />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/account" element={<Account />} />
           <Route path="/category/:category" element={<Category />} />
           <Route path="/product" element={<ProductDetails />} />
           <Route path="/signup" element={<SignupForm />} />
@@ -47,7 +49,7 @@ function App() {
             <Route path="add-product" element={<AddProduct />} />
             <Route path="update-products" element={<UpdateProducts />} />
           </Route>
-        </Routes>
+        </Routes>{" "}
       </BrowserRouter>
     </QueryClientProvider>
   );

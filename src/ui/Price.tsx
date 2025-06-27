@@ -21,7 +21,7 @@ export default function Price({
           <span className="text-gray-400 line-through text-base ">
             ${product.price.toFixed(1)}
           </span>
-          <span className="sm:text-xs text-xs px-2 bg-red-200 sm:px-3 rounded-full text-red-400 py-1">
+          <span className=" hidden sm:block sm:text-xs text-xs px-2 bg-red-200 sm:px-3 rounded-full text-red-400 py-1">
             -{product?.off}%
           </span>
         </>

@@ -138,7 +138,6 @@ export async function deleteApi(
     const { error } = await supabase.from("products").delete().eq("id", id);
     if (error) {
       throw new Error(error.message);
-      console.log(error?.message);
     }
   } else {
     const { error } = await supabase.from("products").delete().eq("id", id);
@@ -157,4 +156,15 @@ export async function updateProductApi(product: ProductType) {
 
   if (error) throw new Error("couldnt update");
   return data;
+}
+
+export async function searchProducts(searchedWord: string) {
+  const { data: products, error } = await supabase
+    .from("products")
+    .select("*")
+    .ilike("name", `%${searchedWord}%`);
+  if (error) throw new Error(error.message);
+  console.log(products);
+
+  return products;
 }

@@ -52,3 +52,22 @@ export async function logoutApi() {
     console.log(error.message);
   }
 }
+export async function updateUser(password: string) {
+  const { error } = await supabase.auth.updateUser({
+    password,
+  });
+
+  if (error) {
+    console.log(error.message);
+  }
+}
+
+export async function updateUserName(name: string) {
+  const { error } = await supabase.auth.updateUser({
+    data: { name },
+  });
+
+  if (error) {
+    console.log(error.message);
+  }
+}
