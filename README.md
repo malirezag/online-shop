@@ -1,4 +1,7 @@
-# React + TypeScript + Vite
+# React + TypeScript + Vite 
+
+website link: https://online-shop-blue-nu.vercel.app/
+
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
