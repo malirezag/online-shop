@@ -16,10 +16,7 @@ export default function UpdateProducts() {
   };
 
   return (
-    <div className="flex flex-row flex-wrap gap-5 items-center justify-center p-5">
-      <h1 className="text-3xl font-bold w-full text-center -translate-y-19 ">
-        Update Products
-      </h1>
+    <div className="flex flex-row flex-wrap gap-5 items-center justify-center p-5 h-fit">
       {products?.products.map((product) => (
         <div className="flex bg-gray-100 shadow-lg rounded-2xl pl-3 pr-5 py-5 gap-5 w-60">
           <img
