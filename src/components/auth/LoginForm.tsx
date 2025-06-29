@@ -40,6 +40,7 @@ export default function LoginForm() {
             Email
           </label>
           <input
+            defaultValue="malirezag@gmail.com"
             id="email"
             type="email"
             autoComplete="email"
@@ -60,6 +61,7 @@ export default function LoginForm() {
             Password
           </label>
           <input
+            defaultValue="123123123"
             id="password"
             type="password"
             autoComplete="current-password"

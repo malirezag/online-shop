@@ -9,6 +9,15 @@ export default function MenuNavItems({
   const navigate = useNavigate();
   return (
     <div className="flex flex-col justify-start items-start gap-10 lg:gap-8 text-xl lg:text-xl lg:flex-row ">
+      <NavLink
+        to="/cms"
+        className="text-white font-bold px-3 py-1 rounded 
+ from-slate-400 via-black to-white
+bg-[length:200%_200%] animate-gradient-x bg-gradient-to-b"
+      >
+        Cms
+      </NavLink>
+
       <select
         className=""
         onChange={(e) => {
@@ -20,7 +29,7 @@ export default function MenuNavItems({
           value="All-products"
           className="text-sm sm:bg-gray-50 bg-gray-500"
         >
-          Shop
+          Products
         </option>
         <option
           value="All-products"
@@ -41,7 +50,6 @@ export default function MenuNavItems({
           <Link to="/category/party">Party</Link>
         </option>
       </select>
-      <NavLink to="">On Sale</NavLink>
       <NavLink to="">New Arriavals</NavLink>
       {/* <NavLink to="">Brands</NavLink> */}
     </div>
