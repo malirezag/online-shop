@@ -44,8 +44,8 @@ function Home() {
 
       <Brands />
       <NewArrival />
-      <ClothCategory />
       <TopSelling />
+      <ClothCategory />
       <HappyCustomers />
       <EmailForm />
       <Footer />
